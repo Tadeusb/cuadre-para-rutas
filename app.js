@@ -16,7 +16,9 @@ app.get("/", (req, res) => {
 
 app.use((error, req, res, next) => {
   if (res.headersSent) return next(error);
-  res.status(500).json({ error: "Ocurrió un error al procesar la solicitud." });
+  const requestId = req.headers["x-vercel-id"] || req.headers["x-request-id"] || "unknown";
+  console.error(`[http] ${req.method} ${req.path} request=${requestId}`, error?.stack || error);
+  res.status(500).json({ errors: ["Ocurrió un error al procesar la solicitud."] });
 });
 
 if (require.main === module) {

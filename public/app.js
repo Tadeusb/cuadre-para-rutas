@@ -439,7 +439,7 @@ downloadButton.addEventListener("click", async () => {
     });
     if (!response.ok) {
       const result = await response.json();
-      setError(result.errors || ["No se pudo generar el PDF."]);
+      setError(result.errors || (result.error ? [result.error] : ["No se pudo generar el PDF."]));
       return;
     }
     const url = URL.createObjectURL(await response.blob());

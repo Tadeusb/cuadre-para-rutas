@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: cuadre-rutas
+    runtime: node
+    buildCommand: npm ci && npm test
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production

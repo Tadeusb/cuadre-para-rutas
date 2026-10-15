@@ -1,0 +1,19 @@
+{
+  "name": "cuadrerutas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^7.0.1",
+    "express": "^5.3.0",
+    "pdfkit": "^0.20.2"
+  }
+}
